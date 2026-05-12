@@ -1,8 +1,19 @@
 /* 顶部氛围背景：模拟 Magic Portfolio 的淡蓝中心光晕，向左右和下方逐渐过渡到白色。 */
-html,
-body {
+html {
   min-height: 100%;
   background: #fff;
+}
+
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse 86% 520px at 50% 0%, rgba(126, 199, 255, 0.4) 0%, rgba(211, 238, 255, 0.32) 36%, rgba(255, 255, 255, 0) 74%),
+    linear-gradient(180deg, #f5fbff 0, #fff 680px, #fff 100%) !important;
+  background-color: #fff !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 780px, 100% 100% !important;
+  background-position: top center !important;
+  background-attachment: scroll !important;
 }
 
 #web_bg {
@@ -23,11 +34,35 @@ body {
   backdrop-filter: blur(18px);
 }
 
+/* Portfolio 页面外层修正：扩大自定义页面可用宽度，并防止内部卡片越过 Butterfly 的页面卡片。 */
+#body-wrap.type-portfolio #content-inner.layout.hide-aside,
+#content-inner.layout.hide-aside:has(.portfolio-shell) {
+  max-width: min(1120px, calc(100% - 30px));
+}
+
+#body-wrap.type-portfolio #page,
+#page:has(.portfolio-shell) {
+  width: 100% !important;
+  overflow: hidden;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px);
+}
+
+#body-wrap.type-portfolio #article-container,
+#article-container:has(.portfolio-shell) {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 /* 页面总容器：控制自定义作品集页面的最大宽度和基础文本颜色。 */
 .portfolio-shell {
-  max-width: 1120px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   color: var(--font-color);
+  overflow: hidden;
 }
 
 /* 边界约束：防止卡片 padding、长链接或 grid 子项把内容撑出主页容器。 */
@@ -307,13 +342,19 @@ body {
 /* 分栏区域：主页 Blog Snapshot 和 Roadmap 的左右布局。 */
 .pf-split {
   display: grid;
+  width: 100%;
+  max-width: 100%;
   gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
 }
 
 /* 分栏子项宽度修正：grid 子项允许收缩，避免 Blog Snapshot 卡片越界。 */
 .pf-split > div,
 .pf-grid > * {
+  max-width: 100%;
   min-width: 0;
+  overflow: hidden;
 }
 
 /* 时间线模块：用于展示下一步更新计划和构建路线图。 */
@@ -382,6 +423,18 @@ html[data-theme='dark'] .pf-hero {
     linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
     linear-gradient(135deg, rgba(28, 32, 38, 0.98), rgba(20, 24, 29, 0.96));
   background-size: 28px 28px, 28px 28px, auto;
+}
+
+html[data-theme='dark'] body {
+  background:
+    radial-gradient(ellipse 86% 520px at 50% 0%, rgba(48, 92, 128, 0.46) 0%, rgba(23, 39, 54, 0.36) 38%, rgba(18, 18, 18, 0) 74%),
+    linear-gradient(180deg, #10151b 0, #121212 680px, #121212 100%) !important;
+  background-color: #121212 !important;
+}
+
+html[data-theme='dark'] #body-wrap.type-portfolio #page,
+html[data-theme='dark'] #page:has(.portfolio-shell) {
+  background: rgba(18, 18, 18, 0.78);
 }
 
 html[data-theme='dark'] .pf-card,
