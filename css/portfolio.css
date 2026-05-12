@@ -30,6 +30,12 @@ body {
   color: var(--font-color);
 }
 
+/* 边界约束：防止卡片 padding、长链接或 grid 子项把内容撑出主页容器。 */
+.portfolio-shell,
+.portfolio-shell * {
+  box-sizing: border-box;
+}
+
 /* 链接基础样式：去掉默认下划线，让卡片和按钮的交互更接近作品集模板。 */
 .portfolio-shell a {
   text-decoration: none;
@@ -223,7 +229,10 @@ body {
 /* 通用卡片：所有内容卡片的基础外观，包含边框、背景、圆角和过渡动效。 */
 .pf-card {
   display: block;
+  width: 100%;
+  max-width: 100%;
   min-height: 100%;
+  overflow: hidden;
   padding: 22px;
   border: 1px solid rgba(28, 31, 39, 0.1);
   border-radius: 8px;
@@ -243,6 +252,7 @@ body {
   color: var(--font-color);
   line-height: 1.75;
   opacity: 0.76;
+  overflow-wrap: anywhere;
 }
 
 /* 卡片顶部栏：用于标签和状态左右分布。 */
@@ -298,6 +308,12 @@ body {
 .pf-split {
   display: grid;
   gap: 18px;
+}
+
+/* 分栏子项宽度修正：grid 子项允许收缩，避免 Blog Snapshot 卡片越界。 */
+.pf-split > div,
+.pf-grid > * {
+  min-width: 0;
 }
 
 /* 时间线模块：用于展示下一步更新计划和构建路线图。 */
