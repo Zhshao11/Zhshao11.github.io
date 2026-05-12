@@ -229,6 +229,38 @@ body {
   font-weight: 700;
 }
 
+/* 访客统计模块：展示 Busuanzi 返回的站点浏览量、独立访客和主页浏览量。 */
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pf-stat-item {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(28, 31, 39, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.pf-stat-label {
+  display: block;
+  color: var(--font-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0.58;
+}
+
+.pf-stat-item strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-highlight-color);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.1;
+}
+
 /* 内容分区：每个大模块之间保留统一垂直间距。 */
 .pf-section {
   margin-top: 34px;
@@ -439,6 +471,7 @@ html[data-theme='dark'] #page:has(.portfolio-shell) {
 
 html[data-theme='dark'] .pf-card,
 html[data-theme='dark'] .pf-hero-panel,
+html[data-theme='dark'] .pf-stat-item,
 html[data-theme='dark'] .pf-filter-bar a,
 html[data-theme='dark'] .pf-timeline div,
 html[data-theme='dark'] .pf-resume-item,
@@ -462,6 +495,7 @@ html[data-theme='dark'] .pf-tag {
 /* 响应式布局：平板和手机上把多列布局折叠为单列，保证内容清晰可读。 */
 @media (max-width: 900px) {
   .pf-hero,
+  .pf-stats,
   .pf-grid-4,
   .pf-grid-3,
   .pf-grid-2,
