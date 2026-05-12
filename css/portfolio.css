@@ -1,3 +1,28 @@
+/* 顶部氛围背景：模拟 Magic Portfolio 的淡蓝中心光晕，向左右和下方逐渐过渡到白色。 */
+html,
+body {
+  min-height: 100%;
+  background: #fff;
+}
+
+#web_bg {
+  background:
+    radial-gradient(ellipse 88% 460px at 50% 0%, rgba(139, 208, 255, 0.36) 0%, rgba(214, 239, 255, 0.3) 34%, rgba(255, 255, 255, 0) 74%),
+    linear-gradient(180deg, #f7fcff 0, #fff 620px, #fff 100%);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 100% 760px, 100% 100%;
+}
+
+/* 页面内容层：让 Butterfly 的页面大卡片略微透出顶部渐变，不再是一整块纯白。 */
+#page,
+#archive,
+#tag,
+#category {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
+
 /* 页面总容器：控制自定义作品集页面的最大宽度和基础文本颜色。 */
 .portfolio-shell {
   max-width: 1120px;
