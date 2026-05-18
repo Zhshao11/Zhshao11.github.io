@@ -322,6 +322,138 @@ body {
   overflow-wrap: anywhere;
 }
 
+/* 项目预览缩略图：用架构图风格增强项目卡片质感，不伪造成真实产品截图。 */
+.pf-project-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 142px;
+  margin: -4px -4px 18px;
+  padding: 18px;
+  border: 1px solid rgba(28, 31, 39, 0.1);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(27, 36, 48, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(27, 36, 48, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0, rgba(126, 199, 255, 0.34), rgba(255, 255, 255, 0.86) 58%);
+  background-size: 18px 18px, 18px 18px, auto;
+}
+
+.pf-project-visual::after {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: rgba(31, 61, 52, 0.34);
+  content: "preview";
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pf-visual-row,
+.pf-visual-metrics,
+.pf-visual-pipeline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pf-visual-row span,
+.pf-visual-stack span,
+.pf-visual-metrics b,
+.pf-visual-pipeline span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(31, 61, 52, 0.14);
+  border-radius: 8px;
+  color: #1f3d34;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pf-visual-row i {
+  flex: 1;
+  height: 1px;
+  min-width: 26px;
+  background: linear-gradient(90deg, rgba(31, 61, 52, 0.16), rgba(31, 61, 52, 0.58), rgba(31, 61, 52, 0.16));
+}
+
+.pf-visual-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin: 12px auto;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(135deg, #1f3d34, #35735a);
+  font-weight: 900;
+  box-shadow: 0 12px 26px rgba(31, 61, 52, 0.16);
+}
+
+.pf-visual-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.pf-visual-stack span {
+  justify-content: flex-start;
+}
+
+.pf-visual-metrics {
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.pf-visual-pipeline {
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.pf-visual-pipeline span {
+  width: 24%;
+  padding: 0 6px;
+}
+
+.pf-visual-wave {
+  position: absolute;
+  right: -36px;
+  bottom: -44px;
+  width: 190px;
+  height: 104px;
+  border: 1px solid rgba(31, 61, 52, 0.14);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(161, 93, 39, 0.16), rgba(126, 199, 255, 0.08), transparent 70%);
+}
+
+.pf-agent-visual {
+  background:
+    linear-gradient(90deg, rgba(27, 36, 48, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(27, 36, 48, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0, rgba(126, 199, 255, 0.38), rgba(255, 255, 255, 0.88) 60%);
+  background-size: 18px 18px, 18px 18px, auto;
+}
+
+.pf-backend-visual {
+  background:
+    linear-gradient(90deg, rgba(27, 36, 48, 0.052) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(27, 36, 48, 0.052) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0, rgba(76, 127, 104, 0.22), rgba(255, 255, 255, 0.9) 62%);
+  background-size: 18px 18px, 18px 18px, auto;
+}
+
+.pf-collab-visual {
+  background:
+    linear-gradient(90deg, rgba(27, 36, 48, 0.052) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(27, 36, 48, 0.052) 1px, transparent 1px),
+    radial-gradient(circle at 78% 0, rgba(161, 93, 39, 0.18), rgba(255, 255, 255, 0.9) 62%);
+  background-size: 18px 18px, 18px 18px, auto;
+}
+
 /* 卡片顶部栏：用于标签和状态左右分布。 */
 .pf-card-top {
   display: flex;
@@ -472,6 +604,7 @@ html[data-theme='dark'] #page:has(.portfolio-shell) {
 html[data-theme='dark'] .pf-card,
 html[data-theme='dark'] .pf-hero-panel,
 html[data-theme='dark'] .pf-stat-item,
+html[data-theme='dark'] .pf-project-visual,
 html[data-theme='dark'] .pf-filter-bar a,
 html[data-theme='dark'] .pf-timeline div,
 html[data-theme='dark'] .pf-resume-item,
@@ -479,6 +612,15 @@ html[data-theme='dark'] .pf-details,
 html[data-theme='dark'] .pf-button {
   border-color: rgba(255, 255, 255, 0.1);
   background: rgba(28, 32, 38, 0.76);
+}
+
+html[data-theme='dark'] .pf-visual-row span,
+html[data-theme='dark'] .pf-visual-stack span,
+html[data-theme='dark'] .pf-visual-metrics b,
+html[data-theme='dark'] .pf-visual-pipeline span {
+  color: #d7f3e7;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(18, 18, 18, 0.58);
 }
 
 html[data-theme='dark'] .pf-button-primary {
